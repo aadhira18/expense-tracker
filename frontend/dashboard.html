@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Tracker Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 p-4 text-white flex justify-between items-center shadow">
+    <h1 class="text-2xl font-bold">💰 Budget Tracker</h1>
+    <button class="bg-white text-blue-600 px-4 py-2 rounded-lg shadow">Logout</button>
+  </nav>
+
+  <!-- Dashboard Container -->
+  <div class="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <!-- Summary Cards -->
+    <div class="col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow text-center">
+        <h2 class="text-lg font-semibold">Income</h2>
+        <p class="text-2xl font-bold text-green-600">₹ 50,000</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow text-center">
+        <h2 class="text-lg font-semibold">Expenses</h2>
+        <p class="text-2xl font-bold text-red-600">₹ 30,000</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow text-center">
+        <h2 class="text-lg font-semibold">Balance</h2>
+        <p class="text-2xl font-bold text-blue-600">₹ 20,000</p>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="bg-white p-6 rounded-xl shadow col-span-2">
+      <h2 class="text-xl font-semibold mb-4">Balance Over Time</h2>
+      <canvas id="lineChart"></canvas>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-xl font-semibold mb-4">Expenses by Category</h2>
+      <canvas id="pieChart"></canvas>
+    </div>
+
+    <!-- Transactions Table -->
+    <div class="bg-white p-6 rounded-xl shadow col-span-3">
+      <h2 class="text-xl font-semibold mb-4">Recent Transactions</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border border-gray-200">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 border">Date</th>
+              <th class="px-4 py-2 border">Category</th>
+              <th class="px-4 py-2 border">Amount</th>
+              <th class="px-4 py-2 border">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="px-4 py-2 border">2025-08-01</td>
+              <td class="px-4 py-2 border">Food</td>
+              <td class="px-4 py-2 border">₹ 500</td>
+              <td class="px-4 py-2 border text-red-600">Expense</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 border">2025-08-05</td>
+              <td class="px-4 py-2 border">Salary</td>
+              <td class="px-4 py-2 border">₹ 50,000</td>
+              <td class="px-4 py-2 border text-green-600">Income</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
